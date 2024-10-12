@@ -482,3 +482,6 @@ mape = mean_absolute_percentage_error(y_true=stock_test2['y'],
                    y_pred=forecast['yhat'])
 
 print(mse,mae, mape)
+
+
+#%%
