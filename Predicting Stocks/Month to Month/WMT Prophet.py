@@ -233,7 +233,7 @@ rmses = []  # Store the RMSEs for each params here
 ## END COVID 
 cutoffs = pd.to_datetime(['2023-08-31','2023-07-31','2023-06-30'])
 
-@delayed
+
 def fit_and_evaluate(params):
     m = Prophet(**params, holidays=lockdowns)
     m.add_regressor('month')
