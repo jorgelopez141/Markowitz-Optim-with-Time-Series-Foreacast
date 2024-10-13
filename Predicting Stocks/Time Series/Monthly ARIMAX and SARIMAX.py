@@ -92,5 +92,35 @@ for p in range(1,7):
     for q in range(1,7):
         try:
             modelS=SARIMAX(monthly_data['WMT'][:"2023-06"],order=(p,1,q),seasonal_order=(3,1,1,12)).fit()            
+            sgt.plot_acf(modelS.resid,zero=False)
+            plt.title(f'p = {p} and q = {q}')
+            plt.show()
         except: 
             continue
+
+#%%
+
+#modelS=SARIMAX(monthly_data['WMT'][:"2023-06"],order=(2,1,2),seasonal_order=(2,0,1,12)).fit()
+
+#modelS=SARIMAX(monthly_data['MSFT'][:"2023-06"],order=(2,1,2),seasonal_order=(2,0,1,12)).fit()
+
+#modelS=SARIMAX(monthly_data['CAT'][:"2023-06"],order=(2,1,2),seasonal_order=(2,0,1,12)).fit()
+
+# modelS=SARIMAX(monthly_data['AXP'][:"2023-06"],order=(2,1,2),seasonal_order=(2,0,1,12)).fit()
+
+modelS=SARIMAX(monthly_data['MRK'][:"2023-06"],order=(2,1,2),seasonal_order=(2,0,1,12)).fit()
+#%%
+
+sgt.plot_acf(modelS.resid,zero=False)
+plt.title('abc')
+plt.show()
+
+#%%
+fig, ax = plt.subplots(figsize=(10, 5))
+monthly_data['MRK']["2023-06":"2024-06"].plot(label='real')
+modelS.predict(start='2023-06-30', end='2024-06-30').plot(label='forecast')
+ax.legend(loc='upper left')
+
+#%%
+
+monthly_data['MRK'].plot()
