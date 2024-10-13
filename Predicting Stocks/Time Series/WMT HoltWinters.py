@@ -44,9 +44,9 @@ fig, ax = plt.subplots(figsize=(10, 5))
 forecast.plot(label='forecast',ax=ax,color='b')
 fig = stock_test[1:13].plot(label='actual',ax=ax,color='y')
 stock_train.plot(label='past values',ax=ax,color='r')
-# ax.set_xbound(lower=pd.to_datetime('2024-07-01'),
-#               upper=pd.to_datetime('2024-09-30'))
-# ax.set_ylim(55, 90)
+ax.set_xbound(lower=pd.to_datetime('2023-07-01'),
+              upper=pd.to_datetime('2024-09-30'))
+ax.set_ylim(45, 70)
 plt.xticks(rotation=45)
 ax.legend(loc='upper left') 
 plot = plt.suptitle('Actual vs Forecasted')
