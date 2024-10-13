@@ -11,6 +11,9 @@ from statsmodels.tsa.holtwinters import ExponentialSmoothing
 from dateutil.relativedelta import relativedelta
 import statsmodels.graphics.tsaplots as sgt
 from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
 # MAPE
 def mean_absolute_percentage_error(y_true, y_pred): 
     """Calculates MAPE given y_true and y_pred"""
@@ -23,8 +26,6 @@ df_ticker_price1=missing_days_andIndexTimeZone(df_ticker_price)
 monthly_data=to_month_and_add_monthYear_columns(df_ticker_price1)
 
 #%%
-from statsmodels.tsa.arima.model import ARIMA
-from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 #%%
 
