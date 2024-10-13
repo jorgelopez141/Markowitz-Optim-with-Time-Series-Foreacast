@@ -51,3 +51,6 @@ plt.xticks(rotation=45)
 ax.legend(loc='upper left') 
 plot = plt.suptitle('Actual vs Forecasted')
 
+#%%
+
+
