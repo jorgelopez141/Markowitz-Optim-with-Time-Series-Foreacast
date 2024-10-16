@@ -18,6 +18,7 @@ data_uniform= []
 for _ in range(n_rows):
     row = random_gen_weights(n_cols)       
     data.append(row)
+    data.append([1/30]*30)
 
 #downloading only last year as I believe is more representative of the picture going forward
 df_weights = pd.DataFrame(data)
