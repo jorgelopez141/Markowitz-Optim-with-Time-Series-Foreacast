@@ -82,7 +82,7 @@ for i, txt in enumerate(unitCircleDf['securities']):
 
 plt.scatter(x=rand_df_1.rand_length, y=rand_df_1.rand_height, s=1, color='r', label = 'Lopez')
 plt.scatter(x=rand_df_RS.rand_length, y=rand_df_RS.rand_height, s=1, color='blue', label = 'Stafford')
-plt.scatter(x=rand_df_unif.rand_length, y=rand_df_unif.rand_height, s=1, color='black', label = 'Uniform')
+plt.scatter(x=rand_df_unif.rand_length, y=rand_df_unif.rand_height, s=1, color='black', label = 'Naive')
 
 
 plt.annotate('DJI', (0, 0))
