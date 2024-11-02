@@ -7,7 +7,7 @@ import math
 import os 
 
 os.getcwd()
-os.chdir('D:\\MyDrive\\10. MS in Data Science UofWisconsin\\14. Final Project Maestria')
+os.chdir('D:\\MyDrive\\10. MS in Data Science UofWisconsin\\14. Capstone Code')
 
 #Excel file con nombres de los stocks
 df_tickers=pd.read_excel('./Predicting Stocks/Time Series/marketInsider.xlsx',sheet_name= 'automatically') #current 30 stocks of DJI
