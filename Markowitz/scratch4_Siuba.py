@@ -1,39 +1,46 @@
-#%%
-import pandas as pd 
-import numpy as np 
-from siuba import _, filter, arrange, select, mutate, group_by, summarize 
-from siuba.data import cars 
-from plotnine import *
+from great_tables import TableBuilder, Table, Column, ColumnSpanner, Row, Cell
 
+# Create the table
+table = TableBuilder() \
+    .add_table(Table(
+        columns=[
+            Column(width=5),
+            Column(width=5),
+            Column(width=5),
+            Column(width=5)
+        ],
+        rows=[
+            Row(cells=[
+                Cell(content="Features", rowspan=2, stub=True),
+                Cell(content="Method A", colspan=3, column_spanner=True),
+                Cell(content="Method B", colspan=3, column_spanner=True),
+                Cell(content="Method C", colspan=3, column_spanner=True),
+            ]),
+            Row(cells=[
+                Cell(content="Min"),
+                Cell(content="Mean"),
+                Cell(content="Max"),
+                Cell(content="Min"),
+                Cell(content="Mean"),
+                Cell(content="Max"),
+                Cell(content="Min"),
+                Cell(content="Mean"),
+                Cell(content="Max"),
+            ]),
+            Row(cells=[
+                Cell(content="Min"),
+                Cell(content="Mean"),
+                Cell(content="Max"),
+                Cell(content="Min"),
+                Cell(content="Mean"),
+                Cell(content="Max"),
+                Cell(content="Min"),
+                Cell(content="Mean"),
+                Cell(content="Max"),
+            ])
+        ]
+    ))
 
-#%%
-
-pctiles=np.percentile(cars.hp, range(20,120,20))
-
-#%%
-
-pctile_groups = []
-for i,x in enumerate(pctiles): 
-    if i == 0: 
-        pctile_groups.append(
-            f"[{str(i)+'-'+str(x)}]"
-         )
-    else:
-        pctile_groups.append(
-            f"({str(pctiles[i-1])+'-'+str(round(x,2))}]"
-         )
-        
-pctile_dict=dict(zip(pctiles,pctile_groups))
-
-#%%
-
-cars >> mutate(hp_cat=pd.cut(cars.hp, range(0,1000,20)))>>\
-group_by(_.hp_cat, _.cyl) >> summarize(total_hp=_.hp.sum())>>\
-    ggplot()+\
-        geom_col(aes(x='hp_cat',y='total_hp'))+\
-            facet_wrap("~cyl",nrow=2)+\
-            theme(axis_text_x=element_text(rotation=45))+\
-            labs(title='ABC')
-
-#%% 
+# Render the table
+print(table.render())
 
