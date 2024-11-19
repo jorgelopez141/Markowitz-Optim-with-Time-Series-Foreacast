@@ -1,5 +1,5 @@
 #%%
-from numbersAddTo1 import random_gen_weights
+from LopezRandomMethod import random_gen_weights
 from unitCircle import unitCircle as unitCircleDf
 #Roger Stafford (2024). Random Vectors with Fixed Sum (https://www.mathworks.com/matlabcentral/fileexchange/9700-random-vectors-with-fixed-sum), MATLAB Central File Exchange. Retrieved October 13, 2024.
 
